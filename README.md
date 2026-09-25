@@ -1,5 +1,3 @@
-# 🕌 Station Para Dawah Community — SPDC
-
 <p align="center">
   <img src="https://lh3.googleusercontent.com/d/1UJWhOKvFS5t8IyT_N0U3m2_G6ViHU807" width="360" alt="SPDC Profile Logo">
 </p>
@@ -112,13 +110,6 @@ SPDC website একটি modern component-based web application হিসেব
 - 🔗 Dynamic navigation
 - ⚡ Modern interactive UI
 
-### Platform & Services
-
-- 🌐 GitHub
-- 📊 Google Sheets integration
-- ☁️ Google Apps Script-based data connectivity
-- 🤖 AI-assisted functionality
-
 ---
 
 ## 🕌 Public Website Sections
@@ -212,8 +203,6 @@ Website-টি বিভিন্ন ধরনের device-এর জন্য 
 
 <p align="center">
   <a href="https://spdc-info.github.io/">🌐 Visit Website</a>
-  •
-  <a href="https://github.com/spdc-info/spdc-info.github.io">💻 View Repository</a>
 </p>
 
 <p align="center">
