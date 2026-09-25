@@ -1,0 +1,53 @@
+name: Build and publish GitHub Pages
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pages-build
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build Vite app
+        run: npm run build
+
+      - name: Publish built site to main
+        run: |
+          cp -a dist/. ./site-dist/
+        shell: bash
+
+      - name: Commit built site
+        run: |
+          rm -rf assets
+          cp -a site-dist/assets ./assets
+          cp site-dist/index.html ./index.html
+          rm -rf site-dist
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html assets
+          if git diff --cached --quiet; then
+            echo "No generated site changes."
+          else
+            git commit -m "build: publish Vite site [skip ci]"
+            git push
+          fi
